@@ -1,0 +1,5 @@
+.vagrant
+*.deb
+*.box
+*.bak
+phpci
