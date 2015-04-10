@@ -17,6 +17,12 @@
  vagrant up
  ```
 
+4. Add hostname to `/etc/hosts` in Host OS:
+
+ ```
+ 192.168.10.20  phpci.local
+ ```
+
 ## MySQL accout
 
 * username: `phpci`
@@ -24,7 +30,7 @@
 
 ## PHPCI account
 
-* username: `admin`
+* username: `admin@example.com`
 * password: `secret`
 
 ## SSL
