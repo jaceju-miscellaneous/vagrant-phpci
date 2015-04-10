@@ -27,6 +27,14 @@
 * username: `admin`
 * password: `secret`
 
+## SSL
+
+Run:
+
+```bash
+ssh /vagrant/assets/enssl.sh
+```
+
 ## License
 
 MIT
