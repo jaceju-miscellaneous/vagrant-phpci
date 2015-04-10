@@ -23,8 +23,8 @@ then
 fi
 
 # PHPCI
-composer create-project block8/phpci phpci --keep-vcs --prefer-dist
-cd phpci && chmod +x console
+tar xvzf assets/phpci.tar.gz phpci
+cd phpci && git pull
 ./console phpci:install \
     --url="http://phpci.local" \
     --db-host=localhost \
@@ -34,7 +34,6 @@ cd phpci && chmod +x console
     --admin-name=admin \
     --admin-pass=secret \
     --admin-mail=admin@example.com
-cp public/.htaccess.dist public/.htaccess
 
 # Site
 cd /etc/apache2/sites-available
