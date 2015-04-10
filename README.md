@@ -6,7 +6,7 @@ Install [Vagrant](https://www.vagrantup.com/) and [VirtualBox](https://www.virtu
 
 ```bash
 git clone https://github.com/jaceju/vagrant-phpci.git
-cd phpci
+cd vagrant-phpci
 vagrant up
 ```
 
