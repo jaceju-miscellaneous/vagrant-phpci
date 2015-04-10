@@ -8,16 +8,16 @@ sudo echo -e $REP1|cat /etc/environment - > /tmp/out && sudo mv /tmp/out /etc/en
 # PHP
 sudo echo "deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu trusty main" > /etc/apt/sources.list.d/ondrej-php5-5_6-trusty.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A6C
-sudo apt-get update
-sudo apt-get -y install php5 php5-ldap php5-mcrypt php5-gearman php5-memcached php5-gd php5-imagick php5-geoip php5-mysql php5-sqlite php5-xdebug
+sudo apt-get -qq update
+sudo apt-get -y -qq install php5 php5-ldap php5-mcrypt php5-gearman php5-memcached php5-gd php5-imagick php5-geoip php5-mysql php5-sqlite php5-xdebug
 
 # MySQL (after PHP)
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password secret'
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password secret'
-sudo apt-get -y install mysql-server
+sudo apt-get -y -qq install mysql-server
 
 # Git
-sudo apt-get -y install git
+sudo apt-get -y -qq install git
 
 # Apache (after PHP)
 sudo a2enmod rewrite
@@ -53,7 +53,7 @@ fi
 tar xzf assets/phpci.tar.gz phpci
 cd phpci
 ./console phpci:install \
-    --url="//phpci.local" \
+    --url="http://phpci.local" \
     --db-host=localhost \
     --db-name=phpci \
     --db-user=phpci \
@@ -61,13 +61,13 @@ cd phpci
     --admin-name=admin \
     --admin-pass=secret \
     --admin-mail=admin@example.com
-mv .htaccess.dist .htaccess
-
+sed -e "s/http:\/\/phpci\.local/\/\/phpci.local/" PHPCI/config.yml > /tmp/out && mv /tmp/out PHPCI/config.yml
+mv public/.htaccess.dist public/.htaccess
 
 # Site
 cd /etc/apache2
 REP2='ServerName phpci.local\nListen 80'
-sudo sed -e "s/Listen 80$/$(echo $REP2)/" /etc/apache2/ports.conf > /tmp/out && sudo mv /tmp/out /etc/apache2/ports.conf
+sudo sed -e "s/Listen 80/$(echo $REP2)/" /etc/apache2/ports.conf > /tmp/out && sudo mv /tmp/out /etc/apache2/ports.conf
 
 cd /etc/apache2/sites-available
 sudo rm -f *.conf
