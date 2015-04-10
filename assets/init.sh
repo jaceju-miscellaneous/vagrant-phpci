@@ -5,7 +5,24 @@ mysql -uroot -psecret < /vagrant/assets/phpci.sql
 
 # Code
 cd /vagrant
-if [ -d "phpci" ]; then mv phpci phpci.bak; fi
+
+# Backup
+for i in `seq 1 1 10`;
+do
+    if [ -d "phpci.$i" ];
+    then
+        j=$(($i+1))
+        mv "phpci.$i" "phpci.$j"
+        break;
+    fi
+done
+
+if [ -d "phpci" ];
+then
+    mv phpci phpci.1
+fi
+
+# PHPCI
 composer create-project block8/phpci phpci --keep-vcs --prefer-dist
 cd phpci && chmod +x console
 ./console phpci:install \
