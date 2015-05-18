@@ -1,3 +1,5 @@
+# @see http://mike.ucoz.com/publ/programming/ubuntu/selenium_ubuntu_amazon_ec2_headless/8-1-0-4
+
 ## Install headless java
 sudo apt-get -y -qq install openjdk-7-jre-headless
 
