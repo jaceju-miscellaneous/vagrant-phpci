@@ -35,6 +35,15 @@ sudo apt-get -y -qq install git
 curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
 sudo apt-get -y -qq install nodejs
 
+# Selenium & Xvfb
+## @see http://mike.ucoz.com/publ/programming/ubuntu/selenium_ubuntu_amazon_ec2_headless/8-1-0-4
+## Install headless java & fonts & xvfb & xserver (important) & firefox
+sudo apt-get -y -qq install openjdk-7-jre-headless
+sudo apt-get -y -qq install xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic
+sudo apt-get -y -qq install xvfb
+sudo apt-get -y -qq install xserver-xorg-core
+sudo apt-get -y -qq install firefox
+
 # Libsass
 git clone https://github.com/sass/libsass.git
 git clone https://github.com/sass/sassc.git libsass/sassc
@@ -116,3 +125,6 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 sudo a2enmod ssl
 sudo a2ensite default-ssl
 sudo service apache2 restart
+
+# Selenium
+sudo sh < /vagrant/assets/selenium.sh
