@@ -86,6 +86,7 @@ fi
 # PHPCI
 tar xzf assets/phpci.tar.gz phpci
 cd phpci
+git pull
 ./console phpci:install \
     --url="http://phpci.local" \
     --db-host=localhost \
