@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Swap
+sudo fallocate -l 1G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+
 # Locale
 sudo locale-gen en_US.UTF-8
 REP1='LANGUAGE="en_US.UTF-8"\nLC_ALL="en_US.UTF-8"\nLC_CTYPE="en_US.UTF-8"\nLANG="en_US.UTF-8"'
