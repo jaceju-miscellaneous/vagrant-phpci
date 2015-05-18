@@ -30,6 +30,29 @@ sudo apt-get -y -qq install mysql-server
 # Git
 sudo apt-get -y -qq install git
 
+# Node.js
+curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+sudo apt-get -y -qq install nodejs
+
+# Libsass
+sudo apt-get install automake libtool
+git clone https://github.com/sass/libsass.git
+git clone https://github.com/sass/sassc.git libsass/sassc
+cd libsass
+autoreconf --force --install
+./configure \
+  --disable-tests \
+  --enable-shared \
+  --prefix=/usr
+cd ..
+sudo make -C libsass -j5 install
+
+# MailCatcher
+sudo apt-get -y -qq install "g++"
+sudo apt-get -y -qq install libsqlite3-dev ruby2.0-dev
+sudo gem install mailcatcher
+sudo cp /vagrant/assets/mailcatcher.conf /etc/init/
+
 # Apache (after PHP)
 sudo a2enmod rewrite
 
