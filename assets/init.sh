@@ -8,7 +8,7 @@ sudo swapon /swapfile
 
 # Init
 # @see http://www.arthurtoday.com/2010/09/ubuntu-add-apt-repository.html
-sudo apt-get update
+sudo apt-get -qq update
 sudo apt-get -y -qq install software-properties-common unzip
 
 # Locale
