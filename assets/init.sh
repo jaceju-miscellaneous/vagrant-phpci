@@ -9,8 +9,8 @@ sudo swapon /swapfile
 # Init
 # @see http://www.arthurtoday.com/2010/09/ubuntu-add-apt-repository.html
 sudo apt-get -qq update
-sudo apt-get -y -qq install automake libtool "g++"
-sudo apt-get -y -qq install software-properties-common unzip
+sudo apt-get -y -qq install automake libtool "g++" \
+expect software-properties-common unzip
 
 # Locale
 sudo locale-gen en_US.UTF-8
