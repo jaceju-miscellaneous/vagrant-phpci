@@ -10,7 +10,10 @@ sudo swapon /swapfile
 # @see http://www.arthurtoday.com/2010/09/ubuntu-add-apt-repository.html
 sudo apt-get -qq update
 sudo apt-get -y -qq install automake libtool "g++" \
-expect software-properties-common unzip
+    expect software-properties-common unzip \
+    build-essential flex bison gperf ruby perl \
+    libsqlite3-dev libfontconfig1-dev libicu-dev libfreetype6 libssl-dev \
+    libpng-dev libjpeg-dev python
 
 # Locale
 sudo locale-gen en_US.UTF-8
@@ -19,9 +22,16 @@ sudo echo -e $REP1|cat /etc/environment - > /tmp/out && sudo mv /tmp/out /etc/en
 
 # PHP
 sudo sh -c 'echo "deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu trusty main" > /etc/apt/sources.list.d/ondrej-php5-5_6-trusty.list'
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 9CE6C37ED6243D66
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A6C
 sudo apt-get -qq update
 sudo apt-get -y -qq install php5 php5-curl php5-ldap php5-mcrypt php5-gearman php5-memcached php5-gd php5-imagick php5-geoip php5-mysql php5-sqlite php5-xdebug
+
+# PhantomJS
+sudo sh -c 'echo "deb http://ppa.launchpad.net/tanguy-patte/phantomjs/ubuntu trusty main" > /etc/apt/sources.list.d/phantomjs.list'
+sudo sh -c 'echo "deb-src http://ppa.launchpad.net/tanguy-patte/phantomjs/ubuntu trusty main" >> /etc/apt/sources.list.d/phantomjs.list'
+sudo apt-get -qq update
+sudo apt-get -y -qq install phantomjs
 
 # MySQL (after PHP)
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password secret'
@@ -38,11 +48,18 @@ sudo apt-get -y -qq install nodejs
 # Selenium & Xvfb
 ## @see http://mike.ucoz.com/publ/programming/ubuntu/selenium_ubuntu_amazon_ec2_headless/8-1-0-4
 ## Install headless java & fonts & xvfb & xserver (important) & firefox
-sudo apt-get -y -qq install openjdk-7-jre-headless
-sudo apt-get -y -qq install xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic
-sudo apt-get -y -qq install xvfb
-sudo apt-get -y -qq install xserver-xorg-core
-sudo apt-get -y -qq install firefox
+sudo apt-get -y -qq install openjdk-7-jre-headless \
+                            xfonts-100dpi xfonts-75dpi \
+                            xfonts-scalable xfonts-cyrillic \
+                            xvfb xserver-xorg-core \
+                            firefox
+
+# Google Chrome
+# @see http://www.howopensource.com/2011/10/install-google-chrome-in-ubuntu-11-10-11-04-10-10-10-04/
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+sudo apt-get -qq update
+sudo apt-get -y -qq install google-chrome-stable
 
 # Libsass
 git clone https://github.com/sass/libsass.git
@@ -125,6 +142,3 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 sudo a2enmod ssl
 sudo a2ensite default-ssl
 sudo service apache2 restart
-
-# Selenium
-sudo sh < /vagrant/assets/selenium.sh
