@@ -53,6 +53,15 @@ sudo apt-get -y -qq install openjdk-7-jre-headless \
                             xfonts-scalable xfonts-cyrillic \
                             xvfb xserver-xorg-core
 
+# Firefox
+## install dbus-x11 to fix "//bin/dbus-launch terminated abnormally without any error message"
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A6DCF7707EBC211F
+sudo sh -c 'echo "deb http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu trusty main" >> /etc/apt/sources.list.d/mozilla-security.list'
+sudo sh -c 'echo "deb-src http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu trusty main" >> /etc/apt/sources.list.d/mozilla-security.list'
+sudo apt-get -qq update
+sudo apt-get -y -qq install dbus-x11 firefox
+firefox -CreateProfile testing
+
 # Google Chrome
 # @see http://www.howopensource.com/2011/10/install-google-chrome-in-ubuntu-11-10-11-04-10-10-10-04/
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
