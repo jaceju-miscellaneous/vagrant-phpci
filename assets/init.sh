@@ -51,8 +51,7 @@ sudo apt-get -y -qq install nodejs
 sudo apt-get -y -qq install openjdk-7-jre-headless \
                             xfonts-100dpi xfonts-75dpi \
                             xfonts-scalable xfonts-cyrillic \
-                            xvfb xserver-xorg-core \
-                            firefox
+                            xvfb xserver-xorg-core
 
 # Google Chrome
 # @see http://www.howopensource.com/2011/10/install-google-chrome-in-ubuntu-11-10-11-04-10-10-10-04/
