@@ -22,12 +22,12 @@ sudo echo -e $REP1|cat /etc/environment - > /tmp/out && sudo mv /tmp/out /etc/en
 
 # PHP
 sudo sh -c 'echo "deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu trusty main" > /etc/apt/sources.list.d/ondrej-php5-5_6-trusty.list'
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 9CE6C37ED6243D66
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A6C
 sudo apt-get -qq update
 sudo apt-get -y -qq install php5 php5-curl php5-ldap php5-mcrypt php5-gearman php5-memcached php5-gd php5-imagick php5-geoip php5-mysql php5-sqlite php5-xdebug
 
 # PhantomJS
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 9CE6C37ED6243D66
 sudo sh -c 'echo "deb http://ppa.launchpad.net/tanguy-patte/phantomjs/ubuntu trusty main" > /etc/apt/sources.list.d/phantomjs.list'
 sudo sh -c 'echo "deb-src http://ppa.launchpad.net/tanguy-patte/phantomjs/ubuntu trusty main" >> /etc/apt/sources.list.d/phantomjs.list'
 sudo apt-get -qq update
