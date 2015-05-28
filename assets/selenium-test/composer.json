@@ -1,6 +1,0 @@
-{
-    "require": {
-        "codeception/codeception": "*",
-        "phpunit/phpunit-selenium": "^1.4"
-    }
-}

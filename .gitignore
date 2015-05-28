@@ -4,3 +4,4 @@
 *.bak
 *.log
 phpci
+selenium-suite
