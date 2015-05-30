@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Prepare Packages
 # @see http://www.arthurtoday.com/2010/09/ubuntu-add-apt-repository.html
 echo "Install building packages..."
 sudo apt-get -y -qq install \

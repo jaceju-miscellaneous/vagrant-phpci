@@ -13,16 +13,6 @@ sudo apt-get -y -qq install \
     php5-gd php5-imagick php5-geoip php5-mysql \
     php5-sqlite php5-xdebug nodejs
 
-echo "Install Xvfb and Browser..."
-sudo apt-get -y -qq install \
-    openjdk-7-jre-headless \
-    xfonts-100dpi xfonts-75dpi \
-    xfonts-scalable xfonts-cyrillic \
-    xvfb xserver-xorg-core \
-    phantomjs \
-    dbus-x11 firefox \
-    google-chrome-stable
-
 # MySQL (after PHP)
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password secret'
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password secret'
