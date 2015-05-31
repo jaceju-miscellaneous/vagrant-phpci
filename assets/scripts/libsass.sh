@@ -11,4 +11,4 @@ autoreconf --force --install
   --enable-shared \
   --prefix=/usr
 cd ..
-sudo make -C libsass -j5 install
+sudo make -C libsass -j8 install
