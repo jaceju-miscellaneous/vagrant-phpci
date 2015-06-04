@@ -1,26 +1,11 @@
 #!/bin/bash
 echo "Install PHPCI..."
 
-# Code Backup
-cd /vagrant
-for i in `seq 1 1 10`;
-do
-    if [ -d "phpci.$i" ];
-    then
-        j=$(($i+1))
-        mv "phpci.$i" "phpci.$j"
-        break;
-    fi
-done
-
-if [ -d "phpci" ];
-then
-    mv phpci phpci.1
-fi
-
 # PHPCI
-tar xzf assets/phpci.tar.gz phpci
-cd phpci
+cd /var/www
+sudo tar xzf /vagrant/assets/phpci.tar.gz
+sudo chown -R www-data.www-data phpci
+cd /var/www/phpci
 git pull
 ./console phpci:install \
     --url="http://phpci.local" \
