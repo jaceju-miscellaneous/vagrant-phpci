@@ -23,6 +23,12 @@
  192.168.10.20  phpci.local
  ```
 
+ And the url will be:
+
+ ```
+ https://phpic.local
+ ```
+
 ## MySQL accout
 
 * username: `phpci`
@@ -33,15 +39,6 @@
 * username: `admin@example.com`
 * password: `secret`
 
-## SSL
-
-Run:
-
-```bash
-ssh /vagrant/assets/enssl.sh
-```
-
 ## License
 
 MIT
-
