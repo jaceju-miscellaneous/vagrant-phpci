@@ -53,7 +53,7 @@
  vagrant box add vagrant-phpci vagrant-phpci.box
  ```
 
-## MySQL accout
+## MySQL account
 
 * username: `phpci`
 * password: `secret`
