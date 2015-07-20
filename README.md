@@ -29,6 +29,30 @@
  https://phpic.local
  ```
 
+## Build base box
+
+1. Login to vm:
+
+ ```
+ vagrant ssh
+ ```
+
+2. Clean cache and history:
+
+ ```
+ sudo apt-get clean
+ sudo dd if=/dev/zero of=/EMPTY bs=1M
+ sudo rm -f /EMPTY
+ cat /dev/null > ~/.bash_history && history -c && exit
+ ```
+
+3. Package base box:
+
+ ```
+ vagrant package --out vagrant-phpci.box
+ vagrant box add vagrant-phpci vagrant-phpci.box
+ ```
+
 ## MySQL accout
 
 * username: `phpci`
