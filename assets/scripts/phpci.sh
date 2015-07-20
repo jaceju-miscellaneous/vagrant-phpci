@@ -3,7 +3,7 @@ echo "Install PHPCI..."
 
 # PHPCI
 cd /var/www
-sudo tar xzf /vagrant/assets/phpci.tar.gz
+sudo tar xzf /vagrant/assets/phpci/phpci.tar.gz
 sudo chown -R www-data.www-data phpci
 cd /var/www/phpci
 git pull

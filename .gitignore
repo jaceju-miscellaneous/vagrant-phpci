@@ -3,6 +3,5 @@
 *.box
 *.bak
 *.log
-phpci
 selenium-suite
 example

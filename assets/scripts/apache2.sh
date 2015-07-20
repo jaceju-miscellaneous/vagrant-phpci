@@ -10,7 +10,7 @@ sudo a2enmod rewrite
 
 cd /etc/apache2/sites-available
 sudo rm -f *.conf
-cp /vagrant/assets/*.conf .
+cp /vagrant/assets/apache2/*.conf .
 
 # SSL Key
 sudo mkdir /etc/apache2/ssl

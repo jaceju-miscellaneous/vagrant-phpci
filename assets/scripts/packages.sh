@@ -20,4 +20,4 @@ sudo apt-get -y -qq install mysql-server
 
 # Database
 echo "Install database..."
-mysql -uroot -psecret < /vagrant/assets/phpci.sql
+mysql -uroot -psecret < /vagrant/assets/phpci/phpci.sql
